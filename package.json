@@ -19,6 +19,7 @@
     "webpack": "^4.43.0"
   },
   "scripts": {
+    "server": "node server/server.ts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
