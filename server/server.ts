@@ -42,7 +42,7 @@ let userData: String = "";
 
 //*routes
 
-app.post("/user", (req: any, res: any) => {
+app.post("/user", (req: any, res: any): any => {
   let body = req.body;
   userModel.create(body, (error: any, success: any) => {
     if (error) {
@@ -52,15 +52,15 @@ app.post("/user", (req: any, res: any) => {
   });
 });
 
-app.get("/register/error", (req: any, res: any) => {
+app.get("/register/error", (req: any, res: any): any => {
   if ((error.status = true)) {
     res.send(true);
   }
 });
 
-app.post("/auth", (req: any, res: any) => {
+app.post("/auth", (req: any, res: any): any => {
   let body = req.body.userName;
-  userModel.findOne({ body }, (error: any, success: any) => {
+  userModel.findOne({ body }, (error: any, success: any): any => {
     if (error) {
       console.log(error);
     } else if (success) {
