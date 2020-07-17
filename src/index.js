@@ -4,8 +4,14 @@ import "./index.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./routes/home";
+import Edit from "./routes/edit";
+import Profile from "./routes/profile";
+import RProfile from "./routes/viewProfile";
 import Login from "./routes/login";
+import Search from "./routes/search";
 import Register from "./routes/register";
+import ProfileModal from "./routes/profileModal";
+import EditModal from "./routes/editModal";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -20,11 +26,29 @@ ReactDOM.render(
       <Route path="/index">
         <Home />
       </Route>
-      <Route path="/login">
+      <Route path="/profmod">
+        <ProfileModal></ProfileModal>
+      </Route>
+      <Route path="/search">
+        <Search></Search>
+      </Route>
+      <Route exact path="/login">
         <Login></Login>
       </Route>
-      <Route path="/register">
+      <Route exact path="/register">
         <Register />
+      </Route>
+      <Route path="/register/:id">
+        <Register />
+      </Route>
+      <Route exact path="/profile">
+        <Profile></Profile>
+      </Route>
+      <Route path="/profile/:id">
+        <RProfile></RProfile>
+      </Route>
+      <Route path="/edit">
+        <Edit></Edit>
       </Route>
     </BrowserRouter>
   </React.StrictMode>,
