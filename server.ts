@@ -12,11 +12,12 @@ const bodyParser = require("body-parser");
 //*imports
 
 //*ports
-const applicationParams = "http://localhost:3000/";
-const serverPort = process.env.PORT || "1234";
-const serverParams = "http://localhost:1234";
+const applicationParams = "/";
+const serverPort = process.env.PORT || "5000";
+const serverParams = "/";
 const mongoosePort =
-  process.env.MONGODB_URI || "mongodb://localhost/webApplication";
+  process.env.MONGODB_URI ||
+  "mongodb+srv://Arnav:Arnav300804@cluster0.ahuqv.mongodb.net/health?retryWrites=true&w=majority";
 
 //*creation
 const app = express();
@@ -27,7 +28,7 @@ app.listen(serverPort, (req, res) => {});
 
 //*use
 app.use(cors());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "./build")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileupload());
@@ -305,4 +306,8 @@ app.get("/privacy", (req, res) => {
       res.send(data.private[data.private.length - 1]);
     }
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./build", "index.html"));
 });

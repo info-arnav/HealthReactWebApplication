@@ -19,9 +19,7 @@ const Navigator = (params) => {
     approved: "",
   });
   useEffect(() => {
-    fetch(`http://localhost:1234/active/profile`).then((e) =>
-      e.json().then((e) => finder(e))
-    );
+    fetch(`/active/profile`).then((e) => e.json().then((e) => finder(e)));
   }, []);
   return (
     <nav className="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
@@ -75,7 +73,7 @@ const Navigator = (params) => {
             )}
             {username ? (
               <li className="nav-item" role="presentation">
-                <a className="nav-link" href="http://localhost:1234/logout">
+                <a className="nav-link" href="/logout">
                   requests
                 </a>
               </li>
@@ -84,7 +82,7 @@ const Navigator = (params) => {
             )}
             {username ? (
               <li className="nav-item" role="presentation">
-                <a className="nav-link" href="http://localhost:1234/logout">
+                <a className="nav-link" href="/logout">
                   Logout - {username}
                 </a>
               </li>
