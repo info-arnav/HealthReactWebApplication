@@ -28,7 +28,11 @@ app.listen(serverPort, (req, res) => {});
 
 //*use
 app.use(cors());
-app.use(express.static(path.join(__dirname, "./build")));
+app.use(
+  express.static(
+    path.join(__dirname, "./appChallengwe/HealthReactWebApplication/build")
+  )
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileupload());
@@ -309,5 +313,11 @@ app.get("/privacy", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./build", "index.html"));
+  res.sendFile(
+    path.join(
+      __dirname,
+      "./appChallengwe/HealthReactWebApplication/build",
+      "index.html"
+    )
+  );
 });
